@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+export CONTECO_LABEL="package.confluent_cc_sasl - ModEco"
+export CONTECO_DESCRIPTION="Modeco Confluent Control Center package, with SASL authentication."
+
+export CONTECO_TYPE="package"
+export CONTECO_NAME="confluent_cc_sasl"
+export CONTECO_TAG="5.4.0"
+export CONTECO_TAG_TYPE="incremental"
+
+export CONTECO_BASE="image.wrapper"
+export CONTECO_BUILD="modeco"
