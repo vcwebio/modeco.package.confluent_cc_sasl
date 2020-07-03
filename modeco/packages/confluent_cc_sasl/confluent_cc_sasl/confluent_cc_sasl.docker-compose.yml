@@ -12,7 +12,7 @@ services:
     networks: [package_overlay]
     deploy:
       mode: replicated
-      replicas: ${CONFLUENT_CC_SASL_DEPLOY_REPLICAS}
+      ${CONFLUENT_CC_SASL_DEPLOY_MODE_REPLICATED_REPLICAS}
       resources:
         limits:
           cpus: '${CONFLUENT_CC_SASL_DEPLOY_RESOURCES_LIMITS_CPUS}'
