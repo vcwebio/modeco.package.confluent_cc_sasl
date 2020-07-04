@@ -9,22 +9,17 @@ services:
     command: []
     volumes: []
     ports: [${CONFLUENT_CC_SASL_PORTS}]
-    networks: [package_overlay]
+    networks: [${CONTECO_NETWORKLOCAL}_overlay]
     deploy:
       mode: replicated
-      ${CONFLUENT_CC_SASL_DEPLOY_MODE_REPLICATED_REPLICAS}
       resources:
         limits:
-          cpus: '${CONFLUENT_CC_SASL_DEPLOY_RESOURCES_LIMITS_CPUS}'
           memory: '${CONFLUENT_CC_SASL_DEPLOY_RESOURCES_LIMITS_MEMORY}'
         reservations:
-          cpus: '${CONFLUENT_CC_SASL_DEPLOY_RESOURCES_RESERVATIONS_CPUS}'
           memory: '${CONFLUENT_CC_SASL_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}'
-      placement:
-        constraints: [${CONFLUENT_CC_SASL_DEPLOY_PLACEMENT_CONSTRAINTS}]
-      labels: [${CONFLUENT_CC_SASL_DEPLOY_LABELS}]
-    labels: [${CONFLUENT_CC_SASL_LABELS}]
+${CONFLUENT_CC_SASL_COMPOSE_EXTENSIONS}
 # END SERVICE confluent_cc.sasl
 
+networks: {${CONTECO_NETWORKLOCAL}_overlay: { external: true }}
 volumes: {}
-networks: {package_overlay: { external: true }}
+${CONTECO_DC_GLOBAL_COMPOSE_EXTENSIONS}
